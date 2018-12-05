@@ -32,7 +32,12 @@ class HomeController extends Controller
     public function profile()
 
     {
-       $users = User::all();
+       //$users = User::all();
+        $users = User::where ('id', 1)
+            ->orderBy('name', 'desc')
+            ->take(10)
+            ->get();
+
 
         return view('profile', ['users' => $users]);
     }

@@ -36,11 +36,10 @@ class HomeController extends Controller
 
     {
        //$users = User::all();
-        $users = User::where ('id', 1)
-            ->orderBy('name', 'desc')
-            ->take(10)
-            ->get();
-
+       $user = User::find(3);
+       $user ->name = 'Steve Smith';
+       $user ->save ();
+       dd($user);
 
         return view('profile', ['users' => $users]);
     }

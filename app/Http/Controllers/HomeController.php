@@ -9,6 +9,7 @@ use App\Car;
 
 
 
+
 class HomeController extends Controller
 {
     /**

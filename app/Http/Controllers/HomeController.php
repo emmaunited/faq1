@@ -35,11 +35,12 @@ class HomeController extends Controller
     public function profile()
 
     {
-       $users = User::all();
 
-       $user = User::find(2);
-       $user ->name = 'Steve Smith';
-       $user ->delete();
+
+       $user = $user = Auth::user();
+        $users = User::all();
+
+       dd($user);
 
 
         return view('profile', ['users' => $users]);

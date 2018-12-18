@@ -37,11 +37,15 @@ class HomeController extends Controller
     {
 
 
-       $user = $user = Auth::user();
+
         $users = User::all();
 
-       dd($user);
+        $users = User::where ('id', 1)
+            ->orderBy('name', 'desc')
+            ->take(10)
+            ->get();
 
+        dd($users ->count());
 
         return view('profile', ['users' => $users]);
     }

@@ -4,11 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
-use App\Answer;
-
-
-
+use App\Question;
 
 class HomeController extends Controller
 {
@@ -21,7 +17,6 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -29,27 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+//        return view('home');
+        $user = Auth::user();
+        $questions = $user->questions()->paginate(3);
+        return view('home')->with('questions', $questions);
     }
-
-    public function profile()
-
-    {
-
-
-        //$user = $user = Auth::user();
-
-        $users = User:: all();
-
-
-
-        return view('profile', ['users' => $users]);
-    }
-
-
-    public function about()
-    {
-        return view('about', ['test' => 'test']);
-    }
-
 }

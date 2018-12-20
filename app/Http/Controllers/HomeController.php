@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use App\Car;
+use App\Answer;
 
 
 
@@ -37,15 +37,19 @@ class HomeController extends Controller
     {
 
 
-        $car = Car::find();
-       $cars = Car::all();
-       $car ->make = 'honda ';
-       $car ->delete();
+        //$user = $user = Auth::user();
+
+        $users = User:: all();
 
 
 
-        return view('profile', ['cars' => $cars]);
+        return view('profile', ['users' => $users]);
     }
 
+
+    public function about()
+    {
+        return view('about', ['test' => 'test']);
+    }
 
 }

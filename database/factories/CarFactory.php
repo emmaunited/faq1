@@ -3,7 +3,7 @@
 use Faker\Generator as Faker;
 
 
-$factory->define(App\Car::class, function (Faker $faker) {
+$factory->define(App\Answer::class, function (Faker $faker) {
     return [
         'make' => $faker->make,
         'model' => $faker->model,

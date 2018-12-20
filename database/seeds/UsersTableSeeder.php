@@ -1,18 +1,18 @@
 <?php
 
-use Illuminate\Database\Seeder;
+namespace App;
 
-class UsersTableSeeder extends Seeder
+use Illuminate\Database\Eloquent\Model;
+class Answer extends Model
+
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    protected $fillable = ['body'];
+    public function user()
     {
-        factory(App\User::class, 50)->create()->each(function ($user) {
-           // $user->posts()->save(factory(App\Post::class)->make());
-        });
+        return $this->belongsTo('App\User');
+    }
+    public function question()
+    {
+        return $this->belongsTo('App\Question');
     }
 }
